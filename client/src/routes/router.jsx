@@ -5,7 +5,7 @@ import DashboardLayout from "../layouts/dashboard-layout/DashboardLayout";
 
 const Home = lazy(() => import("./home/Home"));
 const Dashboard = lazy(() => import("./dashboard/Dashboard"));
-const Chat = lazy(() => import("./chat/Chat"));
+const ChatPage = lazy(() => import("./chat/ChatPage"));
 const SignInPage = lazy(() => import("./auth/sign-in/SignIn"));
 const SignUpPage = lazy(() => import("./auth/sign-up/SignUp"));
 
@@ -25,8 +25,8 @@ const router = createBrowserRouter([
             element: <Dashboard />
           },
           {
-            path: "/dashboard/chats/:chatId",
-            element: <Chat />
+            path: "/dashboard/chat/:chatId",
+            element: <ChatPage />
           }
         ]
       }
