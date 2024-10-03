@@ -1,17 +1,17 @@
 import { IKContext } from "imagekitio-react";
 
-const apiURL = import.meta.env.VITE_API;
-const imagekitEndpoint = import.meta.env.VITE_IMAGE_KIT_ENDPOINT;
-const publicKey = import.meta.env.VITE_IMAGE_KIT_PUBLIC_KEY;
+const API_URL = import.meta.env.VITE_API;
+const IMAGEKIT_ENDPOINT = import.meta.env.VITE_IMAGE_KIT_ENDPOINT;
+const PUBLIC_KEY = import.meta.env.VITE_IMAGE_KIT_PUBLIC_KEY;
 
-if (!imagekitEndpoint || !publicKey || !apiURL) {
+if (!IMAGEKIT_ENDPOINT || !PUBLIC_KEY || !API_URL) {
   throw new Error("Missing key or url");
 }
 
 const ImagekitProvider = ({ children }) => {
   const authenticator = async () => {
     try {
-      const response = await fetch(`${apiURL}/images/auth`);
+      const response = await fetch(`${API_URL}/images/auth`);
 
       if (!response.ok) {
         const errorText = await response.text();
@@ -30,8 +30,8 @@ const ImagekitProvider = ({ children }) => {
 
   return (
     <IKContext
-      urlEndpoint={imagekitEndpoint}
-      publicKey={publicKey}
+      urlEndpoint={IMAGEKIT_ENDPOINT}
+      publicKey={PUBLIC_KEY}
       authenticator={authenticator}
     >
       {children}
