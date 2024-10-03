@@ -8,7 +8,7 @@ const Home = () => {
       <img className="orbital" src="/orbital.png" />
       <div className="left">
         <h1>POWA AI</h1>
-        <h2>OpenAI GPT clone, but it is open</h2>
+        <h2>Google Gemini AI Clone</h2>
         <h3>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -18,7 +18,7 @@ const Home = () => {
       <div className="right">
         <div className="imgContainer">
           <div className="bgContainer">
-            <div className="bg"></div>
+            <div className="bg" />
           </div>
           <img src="/bot.png" className="bot" />
           <div className="chat">
