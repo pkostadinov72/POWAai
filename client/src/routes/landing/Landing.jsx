@@ -1,10 +1,10 @@
-import "./home.css";
+import "./landing.css";
 import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 
-const Home = () => {
+const Landing = () => {
   return (
-    <div className="home">
+    <div className="landing">
       <img className="orbital" src="/orbital.png" />
       <div className="left">
         <h1>POWA AI</h1>
@@ -47,4 +47,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Landing;

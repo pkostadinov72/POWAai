@@ -7,7 +7,7 @@ const SignInPage = () => {
       <SignIn
         path="/sign-in"
         signUpUrl="/sign-up"
-        forceRedirectUrl="/dashboard"
+        fallbackRedirectUrl="/dashboard"
       />
     </div>
   );

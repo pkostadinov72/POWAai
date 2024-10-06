@@ -1,21 +1,17 @@
 import express from "express";
-import ImageKit from "imagekit";
 import cors from "cors";
+import apiRoutes from "./routes/apiRoutes.js";
 
-const port = process.env.PORT || 3000;
 const app = express();
 
-const imagekit = new ImageKit({
-  urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
-  publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
-  privateKey: process.env.IMAGEKIT_PRIVATE_KEY
-});
+const port = process.env.PORT || 3001;
+app.use(express.json());
+app.use(cors());
 
-app.get("/api/images/auth", cors(), (req, res) => {
-  const result = imagekit.getAuthenticationParameters();
-  res.send(result);
-});
+app.use("/api", apiRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+export default app;
