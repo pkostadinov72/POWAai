@@ -11,7 +11,7 @@ const ChatPage = () => {
   const [answer, setAnswear] = useState("");
 
   const handlePrompt = async (prompt) => {
-    setQuestion(prompt);
+    setQuestion(prompt?.text);
 
     const response = await postPrompt(prompt);
 

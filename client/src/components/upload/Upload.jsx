@@ -1,22 +1,22 @@
 import { IKUpload } from "imagekitio-react";
 import { useRef } from "react";
 
-const Upload = ({ setImageState }) => {
+const Upload = ({ setFile }) => {
   const uploadRef = useRef(null);
 
   const onError = (err) => {
     console.log("Error", err);
-    setImageState((prev) => ({ ...prev, error: err }));
+    setFile((prev) => ({ ...prev, error: err }));
   };
 
   const onSuccess = (res) => {
     console.log("Success", res);
-    setImageState((prev) => ({ ...prev, data: res, isLoading: false }));
+    setFile((prev) => ({ ...prev, data: res, isLoading: false }));
   };
 
   const onUploadProgress = (progress) => {
     console.log("Progress", progress);
-    setImageState((prev) => ({ ...prev, isLoading: true }));
+    setFile((prev) => ({ ...prev, isLoading: true }));
   };
 
   const onUploadStart = (evt) => {

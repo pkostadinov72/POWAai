@@ -5,7 +5,7 @@ import { IKImage } from "imagekitio-react";
 import Loader from "../Loader";
 
 const Prompt = ({ handlePrompt }) => {
-  const [imageState, setImageState] = useState({
+  const [file, setFile] = useState({
     isLoading: false,
     error: "",
     data: ""
@@ -14,22 +14,28 @@ const Prompt = ({ handlePrompt }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let prompt = e.target.prompt.value;
+    const promptText = e.target.prompt.value;
 
-    if (!prompt) return;
+    const prompt = file.data
+      ? { text: promptText, file: file.data }
+      : { text: promptText };
+
+    if (!file && !promptText) return;
 
     handlePrompt(prompt);
   };
 
   return (
     <form className="promptForm" onSubmit={handleSubmit}>
-      {imageState.isLoading && <Loader />}
+      {file.isLoading && <Loader />}
 
-      {!!imageState.data && !imageState.isLoading && (
-        <IKImage path={imageState.data?.filePath} width={32} height={32} />
+      {/* TODO add image error handling */}
+
+      {!!file.data && !file.isLoading && (
+        <IKImage path={file.data?.filePath} width={32} height={32} />
       )}
 
-      <Upload setImageState={setImageState} />
+      <Upload setFile={setFile} />
       <input type="text" name="prompt" placeholder="Ask me anything..." />
       <button>
         <img src="/arrow.png" alt="" />

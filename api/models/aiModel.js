@@ -3,6 +3,7 @@ import {
   HarmBlockThreshold,
   HarmCategory
 } from "@google/generative-ai";
+import axios from "axios";
 
 const safetySettings = [
   {
@@ -22,11 +23,36 @@ const model = genAI.getGenerativeModel({
   safetySettings: safetySettings
 });
 
+const fileToGenerativePart = async (file) => {
+  try {
+    const response = await axios.get(file.url, { responseType: "arraybuffer" });
+    const base64Data = Buffer.from(response.data, "binary").toString("base64");
+
+    return {
+      inlineData: {
+        data: base64Data,
+        mimeType: file.fileType
+      }
+    };
+  } catch (error) {
+    console.error("Error processing file:", error);
+    throw new Error("Failed to process file");
+  }
+};
+
 export const generateContent = async (prompt) => {
   try {
+    if (prompt.file) {
+      const generativePart = await fileToGenerativePart(prompt.file);
+      prompt = [generativePart, prompt.text];
+    } else {
+      prompt = prompt.text;
+    }
+
     const result = await model.generateContent(prompt);
     return result.response.text();
   } catch (error) {
+    console.error(error);
     throw new Error("Error generating content");
   }
 };
