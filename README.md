@@ -1,4 +1,4 @@
-🚀# Powa AI
+# 🚀 Powa AI
 
 💡 Powa AI is an open-source clone of Google's Gemini, leveraging the power of the Gemini API to create a versatile and intelligent conversational AI platform.
 
@@ -8,7 +8,7 @@
 - 🖼️ Image upload and analysis capabilities
 - ⚙️ Customizable conversation settings
 
-🛠️ ## Tech Stack
+ ## 🛠️ Tech Stack
 
 - 🖥️ **Frontend**: React
 - 🔧 **Backend**: Express.js
@@ -16,7 +16,7 @@
 - 🎨 **Image Processing**: ImageKit
 - 🧠 **AI Engine**: Google Gemini API
 
-🏁 ## Getting Started
+## 🏁 Getting Started
 
 1. Clone the repository
 
@@ -39,6 +39,6 @@
    ```
 
 
-🙏 ## Acknowledgments
+ ## 🙏 Acknowledgments
 
 - Google Gemini team for the incredible AI technology
