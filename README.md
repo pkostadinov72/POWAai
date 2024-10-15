@@ -12,6 +12,7 @@ Powa AI is an open-source clone of Google's Gemini, leveraging the power of the 
 
 - **Frontend**: React
 - **Backend**: Express.js
+- **Database**: MongoDB
 - **Image Processing**: ImageKit
 - **AI Engine**: Google Gemini API
 
